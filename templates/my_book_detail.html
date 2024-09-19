@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/my_book_detail.css' %}">
+
+
+<img src="{{ post_id.image.url }}" alt="">
+<h1>{{ post_id.title }}</h1>
+<p>{{ post_id.description }}</p>
+<a href="{{ post_id.url}}">Перейти на сайт</a>
+<p>{{ post_id.description }}</p>
+<p> {{ post_id.GENRES}}</p>
+
+
+
+
+
+
+
+
+
+
+
+{% include 'footer.html' %}

@@ -1,0 +1,30 @@
+{% load static %}
+{% include 'header.html' %}
+<link rel="stylesheet" href="{% static 'css/my_book_list.css' %}">
+
+
+
+<h1>
+    Список книг
+</h1>
+{% for i in post_object %}
+<h2>
+    {{i.title}}
+</h2>
+<img src = "{{i.image.url}}"  alt = "" width="450" height="340">
+<p>
+    {{i.author}}
+</p>
+<a href = "/my_book_list/{{i.id}}/">Еще</a>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+{% include 'footer.html' %}

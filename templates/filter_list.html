@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фильтрация одежды</title>
+</head>
+<body>
+    <h1>Фильтрация одежды</h1>
+
+    <!-- Секция для мужской одежды -->
+    <h2>Одежда мужская</h2>
+    <ul>
+        {% if product_cloth_men %}
+            {% for product in product_cloth_men %}
+                <li>
+                    <strong>{{ product.name }}</strong> - {{ product.description }}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет доступной мужской одежды.</li>
+        {% endif %}
+    </ul>
+
+    <!-- Секция для женской одежды -->
+    <h2>Одежда женская</h2>
+    <ul>
+        {% if product_cloth_women %}
+            {% for product in product_cloth_women %}
+                <li>
+                    <strong>{{ product.name }}</strong> - {{ product.description }}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет доступной женской одежды.</li>
+        {% endif %}
+    </ul>
+
+    <!-- Секция для детской одежды -->
+    <h2>Одежда детская</h2>
+    <ul>
+        {% if product_cloth_kids %}
+            {% for product in product_cloth_kids %}
+                <li>
+                    <strong>{{ product.name }}</strong> - {{ product.description }}
+                </li>
+            {% endfor %}
+        {% else %}
+            <li>Нет доступной детской одежды.</li>
+        {% endif %}
+    </ul>
+
+</body>
+</html>

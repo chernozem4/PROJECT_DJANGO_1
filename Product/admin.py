@@ -1,0 +1,7 @@
+from django.contrib import admin
+from . import models
+admin.site.register(models.Tag)
+admin.site.register(models.Cloth)
+
+
+# Register your models here.
