@@ -1,0 +1,18 @@
+{% include '../header.html' %}
+<br><br><br>
+
+
+
+<h1>Список книг для удаления</h1>
+    <ul>
+        {% for book in post_object %}
+            <li>
+                {{ book.title }} - <a href="{% url 'book_drop' book.id %}">Удалить</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'book_list_edit' %}">Назад к списку книг</a>
+
+
+
+{% include '../footer.html' %}

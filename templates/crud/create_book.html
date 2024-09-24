@@ -1,0 +1,17 @@
+{% load static %}
+{% include '../header.html' %}
+<link rel="stylesheet" href="{% static 'css/create_form.css' %}">
+<br><br><br>
+
+
+<h1>Создать новую книгу</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать</button>
+    </form>
+    <a href="{% url 'book_list_edit' %}">Назад к списку книг</a>
+
+
+
+{% include '../footer.html' %}

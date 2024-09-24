@@ -1,0 +1,22 @@
+{% load static %}
+{% include '../header.html' %}
+
+<br><br><br>
+
+
+
+
+
+
+<h1>Список книг для редактирования</h1>
+    <ul>
+        {% for book in post_object %}
+            <li>
+                {{ book.title }} - <a href="{% url 'update_book' book.id %}">Редактировать</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_book' %}">Создать новую книгу</a>
+
+
+{% include '../footer.html' %}

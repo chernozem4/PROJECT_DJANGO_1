@@ -1,0 +1,20 @@
+{% load static %}
+{% include '../header.html' %}
+<br><br><br>
+<link rel="stylesheet" href="{% static 'css/update_form.css' %}">
+
+
+
+
+<h1>Редактировать книгу</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить изменения</button>
+    </form>
+    <a href="{% url 'book_list_edit' %}">Назад к списку книг</a>
+
+
+
+
+{% include '../footer.html' %}
