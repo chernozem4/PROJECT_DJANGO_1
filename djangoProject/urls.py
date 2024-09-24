@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', include('Product.urls')),  # Подключаем маршруты для Product
-    path('my_books/', include('my_book.urls')),  # Подключаем маршруты для MyBook
+    path('my_books/', include('my_book.urls')),
+    path('user/', include('users.urls')),# Подключаем маршруты для MyBook
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
