@@ -3,7 +3,8 @@ from . import  models, forms
 from django.http import HttpResponse
 from django.views import View
 from django.views import generic
-
+from django.views.decorators.cache import cache_page
+@cache_page(60 * 15)
 class MyBookListView(View):
     def get(self, request):
         post_object = models.MyBook.objects.all()
@@ -15,6 +16,8 @@ class MyBookListView(View):
             }
         )
 
+
+@cache_page(60 * 15)
 # Detail View for MyBook
 class MyBookDetailView(View):
     def get(self, request, id):
@@ -26,7 +29,7 @@ class MyBookDetailView(View):
                 'post_id': post_id
             }
         )
-
+@cache_page(60 * 15)
 # List View for editing MyBook items
 class BookListEditView(View):
     def get(self, request):
@@ -38,7 +41,7 @@ class BookListEditView(View):
                 'post_object': post_object
             }
         )
-
+@cache_page(60 * 15)
 # Update View for a specific MyBook
 class UpdateBookView(View):
     def get(self, request, id):
@@ -67,7 +70,7 @@ class UpdateBookView(View):
                 'post_id': post_id
             }
         )
-
+@cache_page(60 * 15)
 # Delete View for listing MyBook items
 class MyBookListDeleteView(View):
     def get(self, request):
@@ -79,7 +82,7 @@ class MyBookListDeleteView(View):
                 'post_object': post_object
             }
         )
-
+@cache_page(60 * 15)
 # Delete a specific MyBook
 class BookDropView(View):
     def post(self, request, id):
@@ -87,6 +90,8 @@ class BookDropView(View):
         post_id.delete()
         return HttpResponse('Новость удалена!!! <a href = "/my_book_list/">На список новостей</a>')
 
+
+@cache_page(60 * 15)
 # Create a new MyBook item
 class CreateBookView(View):
     def get(self, request):
@@ -113,7 +118,7 @@ class CreateBookView(View):
         )
 
 
-
+@cache_page(60 * 15)
 class SearchView(generic.ListView):
     template_name = 'my_book_list.html'
     context_object_name = 'post_object'
